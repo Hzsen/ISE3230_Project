@@ -18,16 +18,41 @@ Finally, ABC does not have the space to store more than 100 sweatshirts from one
 
 ## Detail
 
-Manufacturers：
+### Manufacturers
 
 1.Vietnam Manufacturing Plant
 
+**Manufacturing Costs**: $\$1$
+
+**Manufacturing costs if a one-year order is signed**: $\$0.5$
+
+**Shipping costs per quarter**: $\$10,000$
+
+**Time to complete each order (in months)**: $3$
+
+
+
 2.Local manufacturing plant
 
-Warehouses:
+**Manufacturing Costs**: $\$5$
+
+**Manufacturing costs if the number of orders exceeds 10,000 pieces**: $\$4$
+
+**Shipping costs per quarter**: $\$1,000$
+
+**Time to complete each order (in months)**: $2$
+
+
+
+### Warehouses
 
 1. Local A
 2. Local B
+
+### Sales channels
+
+1. online
+2. local shop
 
 Storage costs and transportation costs, cost of goods sold
 
