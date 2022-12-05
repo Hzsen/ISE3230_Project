@@ -4,36 +4,38 @@ import pulp
 import itertools
 import gmaps
 import googlemaps
+import matplotlib
+from examples.advanced.image_processing import plt
 
 API_KEY = 'AIzaSyCIsJ0V1CW4Zsm38UbBkj45_bW6Dbelh-c'
 gmaps.configure(api_key=API_KEY)
 googlemaps = googlemaps.Client(key=API_KEY)
 
 # customer count ('0' is depot)
-customer_count = 10
+customer_count = 5
 
 # the number of vehicle
-vehicle_count = 4
+vehicle_count = 2
 
 # the capacity of vehicle
-vehicle_capacity = 50
+vehicle_capacity = 500
 
 # fix random seed
 np.random.seed(seed=777)
 
 # set depot latitude and longitude
-depot_latitude = 40.748817
-depot_longitude = -73.985428
+depot_latitude = 40.0067
+depot_longitude = -83.0305
 
 # make dataframe which contains vending machine location and demand
-df = pd.DataFrame({"latitude": np.random.normal(depot_latitude, 0.007, customer_count),
-                   "longitude": np.random.normal(depot_longitude, 0.007, customer_count),
-                   "demand": np.random.randint(10, 20, customer_count)})
+df = pd.DataFrame({"latitude": np.array([40.0067, 41.4993, 39.1031, 41.0814, 39.7589]),
+                   "longitude": np.array([-83.0305, -81.6944, -84.5120, -81.5190, -84.1916]),
+                   "demand": np.random.randint(50, 200, customer_count)})
 
 # set the depot as the center and make demand 0 ('0' = depot)
 df.iloc[0, 0] = depot_latitude
-df.iloc[0, 0].longitude = depot_longitude
-df.iloc[0, 0].demand = 0
+df.iloc[0, 1].longitude = depot_longitude
+df.iloc[0, 2].demand = 0
 
 
 # function for plotting on Google Maps
@@ -113,11 +115,11 @@ for vehicle_count in range(1, vehicle_count + 1):
                               range(1, customer_count)) <= vehicle_capacity
 
         # fomula (6)
-    subtours = []
+    sub_tours = []
     for i in range(2, customer_count):
-        subtours += itertools.combinations(range(1, customer_count), i)
+        sub_tours += itertools.combinations(range(1, customer_count), i)
 
-    for s in subtours:
+    for s in sub_tours:
         problem += pulp.lpSum(
             x[i][j][k] if i != j else 0 for i, j in itertools.permutations(s, 2) for k in range(vehicle_count)) <= len(
             s) - 1
