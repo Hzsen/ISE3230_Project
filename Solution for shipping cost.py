@@ -36,7 +36,7 @@ df.iloc[0, 0].longitude = depot_longitude
 df.iloc[0, 0].demand = 0
 
 
-# function for plotting on google maps
+# function for plotting on Google Maps
 def _plot_on_gmaps(_df):
     _marker_locations = []
     for i in range(len(_df)):
