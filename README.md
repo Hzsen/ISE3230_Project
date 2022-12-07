@@ -459,9 +459,7 @@ Link to the YouTube video
 
 #### Appendix B: 
 
-Create Github with file and add link
-
-
+[GitHub for Project]: https://github.com/Hzsen/ISE3230_Project/	"ISE3230_Project"
 
 #### Appendix C (Tasks):
 
