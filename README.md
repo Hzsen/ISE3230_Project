@@ -1,8 +1,6 @@
-# Project Report
+Ryan Mark.90, Zen.Shen He.2148 
 
-author: Ryan Mark.90, Zen.Shen He.2148 
-
-instructor: Professor Sam  Davanloo 
+Professor Sam  Davanloo 
 
  ISE 3230 
 
@@ -10,11 +8,11 @@ December 7, 2022
 
 ##  Introduction 
 
-Every day, small businesses are tasked with managing inventory, investing in capital, and finding the best way to maximize profits. Much of the time, owners are using their best judgment on how to buy inventory and manage the earnings they receive. The beginning of a business can be the most difficult time to figure out how to best use your limited resources. In our project, we would help a small business formulate the best way to plan inventory to maximize profits with multiple constraints over a 12-month period. IN our store, AB Clothing (ABC), we are a new sweatshirt store that is struggling to allocate resources and buy the optimal number of sweatshirts to sell. 
+​	Every day, small businesses are tasked with managing inventory, investing in capital, and finding the best way to maximize profits. Often, owners are using their best judgment on how to best buy inventory and manage the earnings they receive. The first months of a new business can be the most difficult time to figure out how to best use your limited resources. 
 
-To start, we have decided ABC will have $1000 and zero sweatshirts to begin the business. One of the problems ABC needs to solve is how to buy sweatshirts. Their supplier implements a bundle pricing option so they get better deals for more sweatshirts they buy. Additionally, ABC has projected demand for each month for the next 12 months. Because this demand projection is not perfect, ABC likes to store at least ten sweatshirts at any given time. Finally, ABC does not have the space to store more than 100 sweatshirts from one month to the next.
+​	In our project, we set out to help a small business formulate the best way to plan inventory to maximize profits over a 12-month period. The store we are assisting is AB Clothing (ABC). They are a new sweatshirt store that is struggling to allocate resources and buy the optimal number of t-shirts to sell. For their first month, ABC will have $1000 and zero t-shirts to begin the business. One of the problems ABC needs to solve is how to best buy t-shirts. They have the option of buying from three suppliers. The suppliers differ by their bundle pricing options so ABC can get better deals for the more t-shirts they buy. Additionally, ABC has projected demand for each month for the next 12 months that we must take into account. Because this demand projection is not perfect, ABC prefers to store at least ten t-shirts at any given time (month to month). Finally, ABC does not have the space to store more than 100 t-shirts from one month to the next. 
 
-Our goal is to create a Linear Program that helps ABC maximize their profits via savings on purchasing sweatshirts in bulk while accounting for numerous constraints on their storage, funds, and demand.
+​	Our goal is to create a Linear Program that helps ABC maximize profits by saving on purchasing t-shirts in bulk while accounting for numerous constraints on their storage, funds, and demand.
 
 ## Solution Ideas
 
@@ -98,8 +96,11 @@ t_{11}&=t_{10}+x_{11}+y_{11}+z_{11}-d_{11}\\
 t_{12}&=t_{11}+x_{12}+y_{12}+z_{12}-d_{12}\\
 10&\leq t_1,...,t_{12}\leq100\\
 0&\leq x_1,...,x_{12}\leq24\\
-25&\leq y_1,...,y_{12}\leq49\\
-50&\leq z_1,...,z_{12}
+y_i&=0\;or\;25\leq y_i\leq49,i=1,2,3,4,5,..,12\\
+&0w_{i1}+50w_{i2}\leq y_i\leq 0 u_{i1}+49u_{i2}\\
+z_i&=0\;or\;50\leq z_i\\
+&0w_{i1}+50w_{i2}\leq z_i\leq 0 u_{i1}+\tbinom{inventory}{max}u_{i2}\\
+&u_{ij},w_{ij}\;\text{is that a question.}
 \end{aligned}
 $$
 
@@ -445,7 +446,18 @@ d =
 [25. 14. 33. 40. 36. 70. 51. 49. 12. 88. 72. 25.]
 ```
 
-#### Optimality Analysis
+## Result
+
+After optimizing our objective function, we have given the following values for our decision variables.
+
+|                                  | Jan   | Feb   | Mar   | Apr   | May   | June  | July  | Aug   | Sep   | Oct   | Nov   | Dec   |
+| -------------------------------- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
+| Net Cash (\$)                    | 1,125 | 1,060 | 1,380 | 1,980 | 2,420 | 3,620 | 4,440 | 5,220 | 5,075 | 6,635 | 7,875 | 8,075 |
+| T-shirts Remaining               | 10    | 11    | 17    | 10    | 14    | 10    | 10    | 10    | 13    | 10    | 10    | 15    |
+| Company X T-Shirts bought (\$30) | 0     | 0     | 0     | 0     | 0     | 0     | 0     | 0     | 0     | 0     | 0     | 0     |
+| Company Y T-Shirts bought (\$25) | 35    | 25    | 0     | 0     | 0     | 0     | 0     | 0     | 25    | 0     | 0     | 0     |
+| Company Z T-Shirts bought (\$20) | 0     | 0     | 50    | 50    | 50    | 80    | 61    | 59    | 0     | 98    | 82    | 40    |
+| Demand                           | 25    | 14    | 33    | 40    | 36    | 70    | 51    | 49    | 12    | 88    | 72    | 25    |
 
 
 
@@ -459,7 +471,7 @@ Link to the YouTube video
 
 #### Appendix B: 
 
-[GitHub for Project]: https://github.com/Hzsen/ISE3230_Project/	"ISE3230_Project"
+[;]: ;;	;";"
 
 #### Appendix C (Tasks):
 
