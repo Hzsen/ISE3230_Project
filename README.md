@@ -16,6 +16,50 @@ To start, we have decided ABC will have $1000 and zero sweatshirts to begin the 
 
 Our goal is to create a Linear Program that helps ABC maximize their profits via savings on purchasing sweatshirts in bulk while accounting for numerous constraints on their storage, funds, and demand.
 
+## Solution Ideas
+
+To create a linear program to help ABC maximize their profits, we need to first identify the decision variables, objective function, and constraints.
+
+The decision variables in this problem are the number of sweatshirts ABC buys each month. We can represent these variables as $x_1, x_2, ..., x_{12}$, where $x_i$ represents the number of sweatshirts ABC buys in month $i$.
+
+The objective function is the total profit ABC makes. This profit is the difference between the total revenue from selling sweatshirts and the total cost of buying the sweatshirts. We need to find a way to model the relationship between the number of sweatshirts ABC buys and their total profit.
+
+The constraints in this problem include the bundle pricing option from the supplier, the storage capacity, and the demand projection for each month.
+
+We can represent the bundle pricing option as a set of inequalities that define the cost of buying a certain number of sweatshirts. For example, if the supplier offers a discount for buying more than 10 sweatshirts, we can represent this as the following inequality:
+
+$cost(x) \leq 10 * price + (x - 10) * discounted_price$
+
+Where $cost(x)$ is the total cost of buying $x$ sweatshirts, $price$ is the regular price of a sweatshirt, and $discounted_price$ is the discounted price of a sweatshirt.
+
+The storage capacity constraint can be represented as an inequality that defines the maximum number of sweatshirts ABC can store at any given time:
+
+$\sum_{i=1}^{12} x_i - \sum_{i=1}^{12} demand_i \leq 100$
+
+Where $demand_i$ is the demand for sweatshirts in month $i$.
+
+Finally, the demand projection constraint can be represented as a set of inequalities that defines the minimum number of sweatshirts ABC needs to have in stock in each month:
+
+$x_i \geq demand_i + 10$
+
+Where $x_i$ is the number of sweatshirts ABC buys in month $i$ and $demand_i$ is the demand for sweatshirts in month $i$.
+
+To formulate the linear program, we can use the decision variables, objective function, and constraints we have defined above. The linear program can be written as follows:
+
+Maximize $profit = \sum_{i=1}^{12} revenue_i - cost(x_i)$
+
+Subject to:
+
+$cost(x_i) \leq 10 * price + (x_i - 10) * discounted_price$
+
+$\sum_{i=1}^{12} x_i - \sum_{i=1}^{12} demand_i \leq 100$
+
+$x_i \geq demand_i + 10$
+
+Where $profit$ is the total profit ABC makes, $revenue_i$ is the revenue from selling sweatshirts in month $i$, $cost(x_i)$ is the total cost of buying $x_i$ sweatshirts in month $i$, and $x_i$ is the number of sweatshirts ABC buys in month $i$.
+
+This linear program can be solved using a linear programming solver to find the optimal number of sweatshirts ABC should buy in each month to maximize their profit.
+
 ## Details
 
 #### Mathematical expressions
@@ -35,6 +79,8 @@ $z_i$ be quantity of T-shirt bought at price \$20 in month $i$,
 $d_i$ be demand of T-shirt for month $i$,
 
 $i\in[1,12],i\in\N$.
+
+
 $$
 \begin{aligned}
 Maximize\;z&=n_{11}+40d_{12}-25y_{12}-20z_{12}\\
@@ -79,7 +125,7 @@ $$
 
 ```python
 import cvxpy as cp
-#%%
+
 n = cp.Variable(12, integer = True)      #n[i] = the net profit before month i
 t = cp.Variable(12, integer = True)      #t[i] = number of tshirts in storage after month i
 x = cp.Variable(12, integer = True)      #x[i] = number of tshirts bought at highest price after month i
@@ -407,9 +453,9 @@ d =
 
 #### Appendix A:	
 
-Add the link to the youtube video
+Link to the YouTube video
 
-
+[Group 18 Final Project - YouTube](https://www.youtube.com/watch?v=69YxvaVlXcw)
 
 #### Appendix B: 
 
