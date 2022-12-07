@@ -78,7 +78,7 @@ $z_i$ be quantity of T-shirt bought at price \$20 in month $i$,
 
 $d_i$ be demand of T-shirt for month $i$,
 
-$i\in[1,12],i\in\N$.
+$i\in[1,12],i\in\N$
 
 
 $$
